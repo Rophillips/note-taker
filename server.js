@@ -13,3 +13,9 @@ const PORT = process.env.PORT || 3000;
 
 //tell server to listen
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+ //set up to get route
+ app.get("/api/notes", function(req, res){
+ //read db.json file and save as json
+     res.json(notes);
+ });
