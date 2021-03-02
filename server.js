@@ -6,7 +6,7 @@ const path = require("path");
 //initialize express create server
 const app = express();
 
-//set static folder to public 
+//middleware 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -16,20 +16,40 @@ const PORT = 3000;
 //tell server to listen
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
-
-//set up to get API notes route 
-app.get("api/notes", function (req, res) {
-    //  //read db.json file and save as json
-    res.json(notes);
+//index html route
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
+//notes html route
+app.get("/notes", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/notes.html"));
+})
 
-app.post("/api/notes", function(req,res) {
+ app.get("api/notes", (req, res) => {
+//read db.json file and save as json
+    res.json(notes);
+ });
+
+//set up to get note with id
+app.get("/api/notes/:id", (req, res) =>{
+     res.json(notes[req.params.id]);
+ });
+
+app.post("/api/notes", (req, res) => {
     let newNote = req.body;
     notes.push(newNote);
     updateDb();
     return console.log("Added new note: "+newNote.title);
-})
+});
+
+//return the deleted note id
+app.delete("/api/notes", (req, res) => {
+    notes.splice(req.params.id, 1);
+    updateDb();
+    console.log("Deleted note"+req.params.id);
+});
+
 
 
 
