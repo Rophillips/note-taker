@@ -27,7 +27,7 @@ const saveNote = (note) => {
 // A function for deleting a note from the db
 const deleteNote = (id) => {
   return $.ajax({
-    url: "api/notes/" + id,
+    url: "/api/notes/" + id,
     method: "DELETE",
   });
 };
@@ -48,14 +48,15 @@ const renderActiveNote = () => {
     $noteText.val("");
   }
 };
-
+var noteCount = 1;
 // Get the note data from the inputs, save it to the db and update the view
 const handleNoteSave = function () {
   const newNote = {
     title: $noteTitle.val(),
     text: $noteText.val(),
+    id: noteCount
   };
-
+  noteCount++
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
