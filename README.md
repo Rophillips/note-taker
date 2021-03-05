@@ -32,3 +32,5 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete
 The app is deployed in Heroku under the name of glacial-beach-92039. The link is available in About section.
 
 Run npm install to install all dependencies. To use the application locally, run node server.js in your CLI, and then open http://localhost:8080 in your preferred browswer. 
+
+![image](https://user-images.githubusercontent.com/74886597/110139783-6a350b80-7da1-11eb-904c-235aadb66655.png)
