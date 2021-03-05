@@ -29,3 +29,4 @@ I WANT to be able to delete notes I've written before
 
 SO THAT I can organize my thoughts and keep track of tasks I need to complete
 
+The app is deployed in Heroku under the name of glacial-beach-92039. The link is available in About section.
