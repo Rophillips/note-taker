@@ -15,3 +15,6 @@ Practice setting up an Express server and in particular learning the importance 
 
 ## Preview
 
+![image](https://user-images.githubusercontent.com/74886597/110338389-f0955b80-7ff4-11eb-9049-3180a1b843b1.png)
+![image](https://user-images.githubusercontent.com/74886597/110338418-f723d300-7ff4-11eb-8a09-b3f26fb103a8.png)
+
